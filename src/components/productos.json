@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "title": "Box Engasse",
+        "price": "$15.000",
+        "category": "TablaMid",
+        "imageSrc": "img/skate1.webp",
+        "quantity": 0
+        
+    },
+    {
+        "id": 2,
+        "title": "English Horse",
+        "price": "$25.000",
+        "category": "TablaPro",
+        "imageSrc": "img/skate2.webp",
+        "quantity": 0
+    },
+    {
+        "id": 3,
+        "title": "Knock Nap",
+        "price": "$35.000",
+        "category": "TablaPro",
+        "imageSrc": "img/skate3.webp",
+        "quantity": 0
+       
+
+        
+    },
+    {
+        "id": 4,
+        "title": "La Night",
+        "price": "$18.000",
+        "category": "TablaMid",
+        "imageSrc": "img/skate4.webp",
+        "quantity": 0
+        
+
+        
+    },
+    {
+        "id": 5,
+        "title": "Silver All",
+        "price": "$32.000",
+        "category": "TablaPro",
+        "imageSrc": "img/skate5.webp",
+        "quantity": 0
+        
+
+        
+    },
+    {
+        "id": 6,
+        "title": "Skin Glam",
+        "price": "$18.000",
+        "category": "TablaMid",
+        "imageSrc": "img/skate6.webp",
+        "quantity": 0
+        
+
+        
+    },
+    {
+        "id": 7,
+        "title": "Midimix",
+        "price": "$54.000",
+        "category": "TablaPro",
+        "imageSrc": "img/skate7.webp",
+        "quantity": 0
+        
+
+        
+    },
+    {
+        "id": 8,
+        "title": "Sir Blue",
+        "price": "$32.000",
+        "category": "TablaPro",
+        "imageSrc": "img/skate8.webp",
+        "quantity": 0
+        
+
+        
+    }
+]
