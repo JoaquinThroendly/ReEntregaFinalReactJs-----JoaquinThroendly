@@ -55,8 +55,8 @@ export const Cart = () => {
           <h1>No hay nada en el carrito</h1>
         ) : (
           <div key={item.id}>
-            <h1>{item.title}</h1>
-            <img src={item.imageId} height={200} />
+            <h1>{item.titulo}</h1>
+            <img src={item.imagen} height={200} />
             <p>{item.quantity}</p>
             <button onClick={() => removeItem(item.id)}>X</button>
           </div>
