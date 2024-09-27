@@ -29,7 +29,6 @@ export const Provider = ({children}) => {
         setItems(filter);
     }
 
-    console.log(items);
 
     return <ItemsContext.Provider value ={{ addItem, items, removeItem, reset }}>{children}</ItemsContext.Provider>;
 };

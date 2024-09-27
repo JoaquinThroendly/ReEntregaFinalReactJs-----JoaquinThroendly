@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Container, Button, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import {
-    getFirestore,
-    getDocs,
-    where,
-    query,
-    collection,
-    } from "firebase/firestore"; 
+getDocs,
+where,
+query,
+collection,
+} from "firebase/firestore"; 
+import { db } from '../main';
 
 export const ItemListContainer = () => {
     const [items, setItems] = useState([]);
@@ -15,16 +15,17 @@ export const ItemListContainer = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const db = getFirestore();
+        const productosCollection = collection(db, "productos");
         const ref = !id
-        ? collection(db, "nombre") 
-        : query(collection(db, "nombre"), where("titulo", "==", id))
+        ? productosCollection
+        : query(productosCollection, where("titulo", "==", id))
 
 
         getDocs(ref)
         .then((snapshot) => {
             setItems(
                 snapshot.docs.map((doc) => {
+                    console.log(doc.data());
                     return { id: doc.id, ...doc.data()};
                 })
             );
@@ -40,10 +41,10 @@ export const ItemListContainer = () => {
         <Container className="mt-4 d-flex">
             {items.map(i => (
                 <Card key={i.id} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={i.img} alt={i.titulo} />
+                    <Card.Img variant="top" src={i.imagen} alt={i.title} />
                     <Card.Body>
                         <Card.Title>{i.titulo}</Card.Title>
-                        <Card.Text>{i.nombre}</Card.Text>
+                        <Card.Text>{i.categoria}</Card.Text>
                         <Card.Text>{i.precio}</Card.Text>
                         <Link to={`/item/${i.id}`}>
                             <Button variant="primary">Ver</Button>

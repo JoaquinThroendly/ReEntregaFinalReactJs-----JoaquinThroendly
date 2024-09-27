@@ -15,7 +15,7 @@ export const ItemDetailsContainer = () => {
   
     useEffect(() => {
       const db = getFirestore();
-      const refDoc = doc(db, "items", id);
+      const refDoc = doc(db, "productos", id);
 
       getDoc(refDoc)
       .then((snapshot) => {
@@ -31,16 +31,16 @@ export const ItemDetailsContainer = () => {
     console.log(item)
 
     if (loading) return "wait";
-    if (!item || !item.img) return "Imagen no disponible";
+    if (!item || !item.imagen) return "Imagen no disponible";
     
     return (
       <Container className="mt-4">
-        <h1>{item.titulo}</h1>
-        <h2>{item.nombre}</h2>
-        <h3>{item.precio}</h3>
-        <img src={item.img} height={200} />
+        <h1>{item.title}</h1>
+        <h2>{item.categoryId}</h2>
+        <h3>{item.price}</h3>
+        <img src={item.imagen} height={200} />
         <br />
-        <b>${item.precio}</b>
+        <b>${item.price}</b>
         <br />
         <b>{item.stock}</b>
         <ItemCount stock={item.stock} onAdd={onAdd}/>
