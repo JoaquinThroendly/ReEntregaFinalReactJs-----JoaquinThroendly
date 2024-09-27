@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { ItemsContext } from "../contexts/ItemsContext";
 import Container from "react-bootstrap/Container";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../main";
 
 const initialValues = {
   phone: "",
@@ -21,7 +22,7 @@ export const Cart = () => {
     });
   };
 
-  const total = items.reduce((acc, act) => acc + act.price * act.quantity, 0);
+  const total = items.reduce((acc, act) => acc + act.precio * act.quantity, 0);
 
   const sendOrder = () => {
     const order = {
@@ -30,7 +31,6 @@ export const Cart = () => {
       total,
     };
 
-    const db = getFirestore();
     const orderCollection = collection(db, "orders");
 
     addDoc(orderCollection, order)
@@ -63,7 +63,7 @@ export const Cart = () => {
         );
       })}
       <br />
-      <div>Total $ {total}</div>
+      <div>Total ${total}</div>
       <form>
         <div>
           <label>Nombre</label>
