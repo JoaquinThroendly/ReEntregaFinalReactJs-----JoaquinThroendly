@@ -12,13 +12,13 @@ import { db } from '../main';
 export const ItemListContainer = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { id } = useParams();
+    const { categoria } = useParams();
 
     useEffect(() => {
         const productosCollection = collection(db, "productos");
-        const ref = !id
+        const ref = !categoria
         ? productosCollection
-        : query(productosCollection, where("titulo", "==", id))
+        : query(productosCollection, where("categoria", "==", categoria))
 
 
         getDocs(ref)
@@ -31,7 +31,7 @@ export const ItemListContainer = () => {
             );
         })
         .finally(() => setLoading(false));
-    }, [id]);
+    }, [categoria]);
 
     if (loading) return "wait";
 
